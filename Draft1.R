@@ -4,7 +4,6 @@ library(ggplot2)
 movies = read.csv('IMDB_data_Winter_2025.csv')
 attach(movies)
 View(movies)
-<<<<<<< HEAD
 
 summary(movie_budget)
 hist(movie_budget)
@@ -36,13 +35,3 @@ boxplot(nb_news_articles)
 plot = ggplot(movies,aes(y=imdb_score,x=nb_news_articles))
 plot + geom_point()
 
-
-
-
-
-
-=======
- 
-install.packages("usethis")
-library(usethis)
->>>>>>> 8bad6eab7233de9fa9dd87549c3a86cf892e32c8
