@@ -30,3 +30,6 @@ ggplot(movies, aes(x = qualvar, y = imdb_score)) + geom_boxplot() + theme(axis.t
 quantvars = movies[,c(4,5,6,8,9,13,15,18,20,22,25,40)]
 corr_matrix = cor(quantvars)
 round(corr_matrix,3)
+
+# add comment
+
