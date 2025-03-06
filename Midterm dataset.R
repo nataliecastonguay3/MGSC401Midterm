@@ -44,10 +44,10 @@ actor1_counts = table(actor1)
 imdb$actor1_new = ifelse(actor1 %in% names(actor1_counts[actor1_counts > 1]), 
                          actor1, "Other")
 actor2_counts = table(actor2)
-imdb$actor1_new = ifelse(actor2 %in% names(actor2_counts[actor2_counts > 1]), 
+imdb$actor2_new = ifelse(actor2 %in% names(actor2_counts[actor2_counts > 1]), 
                          actor2, "Other")
 actor3_counts = table(actor3)
-imdb$actor1_new = ifelse(actor3 %in% names(actor3_counts[actor3_counts > 1]), 
+imdb$actor3_new = ifelse(actor3 %in% names(actor3_counts[actor3_counts > 1]), 
                          actor3, "Other")
 attach(imdb)
 
