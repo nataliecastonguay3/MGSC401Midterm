@@ -2,6 +2,7 @@
 
 ### Magali Schlupp - 261102966
 ### Prudence Tchamdja - 261119632
+### Natalie Castonguay - 260963636
 
 ### Clear the memory
 rm(list=ls())
