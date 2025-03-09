@@ -595,7 +595,7 @@ fit_test_5 = glm(imdb_score ~ bs(duration, knots=knots_duration, degree=1) + dra
                  + maturity_new + musical + animation + romance + actor3_new, data=movies)
 MSE_LOOCV_test_5 = cv.glm(movies, fit_test_5)$delta[1]
 
-# Check that correcting the model did mot impact the usefulness of predictors
+# Check that correcting the model did not impact the usefulness of predictors
 variables_test_6 = c(
   "bs(duration, knots=knots_duration, degree=1)", "drama", "bs(nb_news_articles, knots=knots_articles, degree=1)",
   "poly(release_year, 3)", "horror", "color", "action", "war", "english", "USA", 
@@ -646,7 +646,8 @@ test_6 = lm(imdb_score ~ bs(duration, knots=knots_duration, degree=1) + drama
 vif(test_6)
 
 # Testing interaction terms (it takes forever to run, and adding the interaction terms did improve 
-# the MSE of the model slightly but created problems with the vif test so we decided not to include them)
+# the MSE of the model slightly but created problems with the vif test and we needed a lot of them for a rather
+# small so we decided not to include them to avoid collinearity and overfitting)
 model_predictors = c("duration", "drama", "nb_news_articles", "release_year", "horror", "color", "action",
                      "war", "english", "USA", "movie_meter_IMDBpro", "nb_faces", "movie_budget", "western",
                      "release_month_num", "crime", "sport", "director_new", "maturity_new", "musical", "animation",
@@ -754,5 +755,7 @@ for (i in 47:56){
 }
 test_data$maturity_rating = as.factor(test_data$maturity_rating)
 attach(test_data)
-predict(final_model, test_data)
+predictions = predict(final_model, test_data)
+predictions = cbind(test_data[,1], predictions)
+
 
